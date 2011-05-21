@@ -1,0 +1,8 @@
+# Don't commit any generated documentation.
+doc/*
+
+# Don't commit any hidden files that aren't git-specific.
+.*
+!.gitignore
+!.gitmodules
+
