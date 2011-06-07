@@ -21,6 +21,8 @@
  <target name="phpunit"
          description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
   <exec executable="phpunit" failonerror="true">
+    <arg value="--coverage-clover" />
+    <arg value="./build/clover.xml" />
     <arg value="tests" />
   </exec>
  </target>
