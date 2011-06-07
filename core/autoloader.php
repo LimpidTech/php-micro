@@ -10,6 +10,11 @@
 			PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE
 		);
 
+		if (!defined('MICRO_AUTOLOADER_NO_REVERSE'))
+		{
+			$object_segments = array_reverse($object_segments);
+		}
+
 		/**
 		 * @TODO: Make these filenames a bit more configurable.
 		 */
