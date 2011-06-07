@@ -7,7 +7,7 @@
 	 * paths, so that we don't need to worry about requiring files with
 	 * relative paths - which can get messy and confusing in some cases.
 	 */
-	define('MICRO_BASE_DIR', dirname($_SERVER['SCRIPT_FILENAME']) . '/');
+	define('MICRO_BASE_DIR', dirname(__FILE__) . '/');
 	define('MICRO_CORE_DIR', MICRO_BASE_DIR . 'core/');
 	define('MICRO_CLASS_DIR', MICRO_BASE_DIR . 'classes/');
 
