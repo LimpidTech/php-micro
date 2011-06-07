@@ -23,6 +23,10 @@
   <exec executable="phpunit" failonerror="true">
     <arg value="--coverage-clover" />
     <arg value="./build/logs/clover.xml" />
+
+    <arg value="--log-junit" />
+    <arg value="./build/logs/junit.xml" />
+
     <arg value="tests" />
   </exec>
  </target>
