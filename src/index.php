@@ -32,3 +32,5 @@
 	// Do any processing required for MICRO.
 	require_once(MICRO_CORE_DIR . '/bootstrap.php');
 
+	$router = new Router();
+
