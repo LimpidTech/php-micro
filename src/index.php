@@ -16,16 +16,6 @@
 	 * filesystem, you can set this to whichever value you'd like - and
 	 * they wont be represented backwards.
 	 *
-	 * Example:
-	 * By default HomeController would be found in a file named:
-	 *     classes/controller/home.php
-	 *
-	 * However, defining this will change that to:
-	 *     classes/home/controller.php
-	 *
-	 * If you prefer the second method, define the constant
-	 * MICRO_AUTOLOADER_NO_REVERSE like so:
-	 *
 	 * define('MICRO_AUTOLOADER_NO_REVERSE', null);
 	 */
 
