@@ -1,6 +1,9 @@
 # Don't commit any generated documentation.
 doc/*
 
+# Ignore the htaccess file. Users can create their own.
+src/.htaccess
+
 # Don't include build output
 build/*
 
