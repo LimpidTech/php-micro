@@ -29,8 +29,9 @@
 	 * define('MICRO_AUTOLOADER_NO_REVERSE', null);
 	 */
 
-	// Do any processing required for MICRO.
+	// Initialize any files that MICRO depends on.
 	require_once(MICRO_CORE_DIR . '/bootstrap.php');
 
+	// Create our URL router.
 	$router = new Router();
 
