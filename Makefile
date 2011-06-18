@@ -6,11 +6,15 @@ source_path = src
 quality = $(conf_path)/phpmd.xml
 quality_out = $(logs_path)/pmd.xml
 sloc_out = $(logs_path)/phploc.csv
+stability_xml_out = $(logs_path)/jdepend.xml
+stability_svg_out = $(logs_path)/jdepend.svg
+stability_overview_out = $(logs_path)/overview.svg
 
 standards_out = $(logs_path)/checkstyle.xml
 duplicates_out = $(logs_path)/phpcpd.xml
 
-all: $(quality_out) $(standards_out) $(duplicates_out) $(sloc_out)
+all: $(quality_out) $(standards_out) $(duplicates_out) $(sloc_out) \
+     $(stability_xml_out) $(stability_svg_out) $(stability_overview_out)
 
 # Generates output regarding code quality assurance
 $(quality_out): init_build
@@ -38,6 +42,17 @@ $(duplicates_out): init_build
 
 	@@echo "Checking code for unnecessary duplicate code."
 	@@phpcpd --log-pmd $(duplicates_out) $(source_path) 2> /dev/null
+
+# Three rules which generate information and diagrams related to the use of
+# efficient patterns.
+$(stability_xml_out): init_build
+	@@pdepend --jdepend-xml=$(logs_path)/jdepend.xml $(source_path)
+
+$(stability_svg_out): init_build
+	@@pdepend --jdepend-chart=$(logs_path)/jdepend.svg $(source_path)
+
+$(stability_overview_out): init_build
+	@@pdepend --overview-pyramid=$(logs_path)/overview.svg $(source_path)
 
 # Sets up various build paths
 init_build: $(build_path) $(logs_path)
