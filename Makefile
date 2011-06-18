@@ -1,6 +1,7 @@
 build_path = build
 logs_path = ${build_path}/logs
 conf_path = conf
+source_path = src
 
 quality = ${conf_path}/phpmd.xml
 quality_out = ${logs_path}/pmd.xml
@@ -9,7 +10,7 @@ all: ${quality}
 
 # Generates output regarding code quality assurance
 ${quality}: init_build
-	@@phpmd . xml ${quality} --reportfile ${quality_out}
+	@@phpmd ${source_path} xml ${quality} --reportfile ${quality_out}
 
 # Sets up various build paths
 init_build: ${build_path} ${logs_path}
