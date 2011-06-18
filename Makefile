@@ -1,20 +1,26 @@
 build_path = build
+logs_path = ${build_path}/logs
+conf_path = conf
 
-quality = ${build_path}/pmd.xml
+quality = ${conf_path}/phpmd.xml
+quality_out = ${build_path}/pmd.xml
 
 all: ${quality}
 
 # Generates output regarding code quality assurance
-${quality}: ${build_path}
-	@@phpmd . xml codesize > $@
+${quality}: init_build
+	@@phpmd . xml ${quality} --reportfile ${logs_path}/pmd.xml
 
-# Sets up our build path
-${build_path}:
-	@@mkdir -p $(build_path)
+# Sets up various build paths
+init_build: ${build_path} ${logs_path}
+
+${build_path} $(logs_path):
+	@@mkdir -p $@
 
 # Cleans up any files that we might have lying around from previous builds.
 clean:
 	@@rm -rf ${build_path}
+	@@rm -rf ${logs_path}
 
-.PHONY: all clean
+.PHONY: all clean build
 
