@@ -1,10 +1,10 @@
 <?php
 
-$core_files = Array(
+$coreFiles = Array(
 	'autoloader.php',
 );
 
-foreach ($core_files as $filename) {
+foreach ($coreFiles as $filename) {
 	require_once(MICRO_CORE_DIR . $filename);
 }
 

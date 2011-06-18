@@ -7,30 +7,30 @@ class Router
 		'action' => 'index',
 	);
 
-	public function __construct($auto_resolve = true)
+	public function __construct($autoResolve = true)
 	{
-		$this->base_uri = $_SERVER['REQUEST_URI'];
+		$this->baseURI = $_SERVER['REQUEST_URI'];
 
-		$this->uri_segments = preg_split(
+		$this->uriSegments = preg_split(
 			'/\//',
-			$this->base_uri,
+			$this->baseURI,
 			-1,
 			PREG_SPLIT_NO_EMPTY
 		);
 
-		if ($auto_resolve) {
+		if ($autoResolve) {
 			$this->resolve();
 		}
 	}
 
 	public function resolve ()
 	{
-		$segments = $this->uri_segments;
+		$segments = $this->uriSegments;
 
 		if (sizeof($segments) > 0) {
-			$controller_name = ucfirst($segments[0]) . 'Controller';
+			$controllerName = ucfirst($segments[0]) . 'Controller';
 		} else {
-			$controller_name = $this->defaults['controller'];
+			$controllerName = $this->defaults['controller'];
 		}
 
 		if (sizeof($segments) > 1) {
@@ -46,7 +46,7 @@ class Router
 		}
 
 		// Instantiate our new controller.
-		$controller = new $controller_name();
+		$controller = new $controllerName();
 
 		call_user_func_array(Array($controller, 'action_' . $action), $params);
 	}

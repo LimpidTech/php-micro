@@ -9,15 +9,15 @@ class URL
 		return '/' . SITE_BASE_URL . $url;
 	}
 
-	static function relative($url, $append_slash = true)
+	static function relative($url, $appendSlash = true)
 	{
-		$final_url = $_SERVER['REQUEST_URI'];
+		$finalURL = $_SERVER['REQUEST_URI'];
 
-		if ($append_slash) {
-			$final_url .= '/';
+		if ($appendSlash) {
+			$finalURL .= '/';
 		}
 
-		return $final_url . $url;
+		return $finalURL . $url;
 	}
 }
 
