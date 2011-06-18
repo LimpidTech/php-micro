@@ -1,10 +1,10 @@
 <?php
 
-	class HomeController
+class HomeController
+{
+	public function action_index()
 	{
-		public function action_index()
-		{
-			View::factory('index')->render();
-		}
+		View::factory('index')->render();
 	}
+}
 
