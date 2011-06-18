@@ -3,12 +3,52 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<title>PHP-Micro</title>
-	</head>
+<head>
+	<title>PHP-Micro</title>
 
-	<body>
+	<style>
+		html, body
+		{
+			margin: 0;
+			padding: 0;
+
+			background-color: #333;
+
+			text-align: center;
+		}
+
+		#page-container
+		{
+			margin: 0 auto;
+			padding: 5px 20px;
+
+			width: 540px;
+			height: 100%;
+
+			border-radius: 0px 0px 15px 15px;
+			background-color: #FFF;
+
+			text-align: left;
+			box-shadow: 1px 1px 10px #000;
+		}
+
+		hr
+		{
+			width: 100%;
+			height: 2px;
+
+			background-color: #333;
+
+			border: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id=page-container>
 		<h3>Welcome to PHP-Micro.</h3>
+
+		<hr />
 
 		<p>
 			This is a <strong>very</strong> minimal framework
@@ -46,6 +86,7 @@
 				
 			</em>
 		</p>
-	</body>
+	</div>
+</body>
 </html>
 
