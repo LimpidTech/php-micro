@@ -7,18 +7,31 @@ quality = ${conf_path}/phpmd.xml
 quality_out = ${logs_path}/pmd.xml
 
 standards_out = ${logs_path}/checkstyle.xml
+duplicates_out = ${logs_path}/phpcpd.xml
 
-all: ${quality_out} ${standards_out}
+all: ${quality_out} ${standards_out} $(duplicates_out)
 
 # Generates output regarding code quality assurance
 ${quality}: init_build
+	@@echo "Checking code quality."
 	@@phpmd ${source_path} xml ${quality} --reportfile ${quality_out}
 
 # Generates reports on issues regarding PHP standard code-style
 ${standards_out}: init_build
+	@@echo "Checking code for standards compliance."
 	@@phpcs --report=checkstyle --extensions=php --tab-width=4 \
 	        --report-width=79 --standard=Zend \
 	        ${source_path} > ${standards_out}
+
+# Makes sure that our code is nice and DRY.
+$(duplicates_out): init_build
+# We shouldn't be hiding errors into /dev/null, but this program
+# throws errors no matter how you use it - and no matter how your
+# code works. So, we do it anyway. This wont hurt the result as
+# far as the build is concerned.
+
+	@@echo "Checking code for unnecessary duplicate code."
+	@@phpcpd --log-pmd $(duplicates_out) $(source_path) 2> /dev/null
 
 # Sets up various build paths
 init_build: ${build_path} ${logs_path}
