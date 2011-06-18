@@ -31,7 +31,7 @@
 		<p>
 			<em>
 				Note that the developers of PHP-Micro firmly
-				believes large webapps should never be
+				believe that large webapps should never be
 				developed in the PHP language. The should
 				be built in something that scales better
 				to a large number requests - which PHP
