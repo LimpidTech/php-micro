@@ -34,7 +34,7 @@ $(standards_out): init_build
 # Build phase for generating information regarding counting lines of code
 $(sloc_out): init_build
 	@@echo "Generating SLOC report."
-	@@phploc --log-csv $(sloc_out) $(source_path)
+	@@phploc --log-csv $(sloc_out) $(source_path) > /dev/null
 
 # Makes sure that our code is nice and DRY.
 $(duplicates_out): init_build
@@ -44,18 +44,21 @@ $(duplicates_out): init_build
 # far as the build is concerned.
 
 	@@echo "Checking code for unnecessary duplicate code."
-	@@phpcpd --log-pmd $(duplicates_out) $(source_path) 2> /dev/null
+	@@phpcpd --log-pmd $(duplicates_out) $(source_path) 2> /dev/null > /dev/null
 
 # Three rules which generate information and diagrams related to the use of
 # efficient patterns.
 $(stability_xml_out): init_build
-	@@pdepend --jdepend-xml=$(logs_path)/jdepend.xml $(source_path)
+	@@pdepend --jdepend-xml=$(logs_path)/jdepend.xml \
+	          $(source_path) > /dev/null
 
 $(stability_svg_out): init_build
-	@@pdepend --jdepend-chart=$(logs_path)/jdepend.svg $(source_path)
+	@@pdepend --jdepend-chart=$(logs_path)/jdepend.svg \
+	          $(source_path) > /dev/null
 
 $(stability_overview_out): init_build
-	@@pdepend --overview-pyramid=$(logs_path)/overview.svg $(source_path)
+	@@pdepend --overview-pyramid=$(logs_path)/overview.svg \
+	          $(source_path) > /dev/null
 
 # Generates a code browser which contains information about errors found
 $(codebrowse_out): init_build
