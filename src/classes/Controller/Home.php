@@ -1,6 +1,6 @@
 <?php defined('PHP_MICRO') or die();
 
-class HomeController
+class HomeController extends Controller
 {
 	public function action_index()
 	{
