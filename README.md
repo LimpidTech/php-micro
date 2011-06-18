@@ -30,7 +30,7 @@ Either way, the current makefile should use them in a bug-free manner.*
 If you have PEAR and PHP's curl[^1] module installed, then these can be installed
 easily with the following commands:
 
-    pear channel-discover pear.pdepend.org
+`   pear channel-discover pear.pdepend.org
     pear channel-discover pear.phpmd.org
     pear channel-discover pear.phpunit.de
     pear channel-discover components.ez.no
@@ -43,7 +43,7 @@ easily with the following commands:
     pear install PHPDocumentor
     pear install PHP_CodeSniffer
     pear install --alldeps phpunit/PHP_CodeBrowser
-    pear install --alldeps phpunit/PHPUnit
+    pear install --alldeps phpunit/PHPUnit`
 
 The build process used by this project is a "fork" of the process described
 on another developer's website[^2] which was ported over to GNU make, because
