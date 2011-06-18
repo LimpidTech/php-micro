@@ -14,7 +14,9 @@ class URL
 		$final_url = $_SERVER['REQUEST_URI'];
 
 		if ($append_slash)
+		{
 			$final_url .= '/';
+		}
 
 		return $final_url . $url;
 	}
