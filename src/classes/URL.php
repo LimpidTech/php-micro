@@ -1,4 +1,4 @@
-<?php
+<?php defined('PHP_MICRO') or die();
 
 define('SITE_BASE_URL', '');
 

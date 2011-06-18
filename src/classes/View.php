@@ -1,4 +1,4 @@
-<?php
+<?php defined('PHP_MICRO') or die();
 
 define('VIEW_BASE_DIR', MICRO_BASE_DIR . '/views');
 define('VIEW_DEFAULT_NAME', 'index');

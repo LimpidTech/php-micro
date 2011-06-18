@@ -1,3 +1,5 @@
+<?php defined('PHP_MICRO') or die(); ?>
+
 <!DOCTYPE html>
 
 <html>

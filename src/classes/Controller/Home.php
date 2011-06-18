@@ -1,4 +1,4 @@
-<?php
+<?php defined('PHP_MICRO') or die();
 
 class HomeController
 {

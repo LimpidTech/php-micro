@@ -1,6 +1,8 @@
 <?php
 	error_reporting(E_ALL | E_STRICT);
 
+	define('PHP_MICRO', true);
+
 	/**
 	 * This gets the base directory that MICRO is running in, as well as
 	 * the directory where "core files" reside. It provides absolute
