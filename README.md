@@ -13,11 +13,11 @@ to view the results of this analysis.
 In order to get the Makefile to build, you must install the following
 dependancies in your PATH:
 
-	* pdepend
-	* phpmd
-	* phpunit
-	* phploc
-	* PHP_CodeSniffer
+* pdepend
+* phpmd
+* phpunit
+* phploc
+* PHP CodeSniffer
 
 ### Note:
 
