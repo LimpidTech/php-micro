@@ -8,7 +8,7 @@ all: ${quality}
 ${quality}: ${build_path}
 	@@phpmd . xml codesize > $@
 
-# Runs common setup routines for the build process
+# Sets up our build path
 ${build_path}:
 	@@mkdir -p $(build_path)
 
