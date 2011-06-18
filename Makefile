@@ -30,5 +30,5 @@ clean:
 	@@rm -rf ${build_path}
 	@@rm -rf ${logs_path}
 
-.PHONY: all clean build
+.PHONY: all clean init_build
 
