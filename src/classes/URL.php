@@ -13,8 +13,7 @@ class URL
 	{
 		$final_url = $_SERVER['REQUEST_URI'];
 
-		if ($append_slash)
-		{
+		if ($append_slash) {
 			$final_url .= '/';
 		}
 

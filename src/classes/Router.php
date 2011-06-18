@@ -27,28 +27,21 @@ class Router
 	{
 		$segments = $this->uri_segments;
 
-		if (sizeof($segments) > 0)
-		{
+		if (sizeof($segments) > 0) {
 			$controller_name = ucfirst($segments[0]) . 'Controller';
-		}
-		else
-		{
+		} else {
 			$controller_name = $this->defaults['controller'];
 		}
 
-		if (sizeof($segments) > 1)
-		{
+		if (sizeof($segments) > 1) {
 			$action = strtolower($segments[1]);
-		}
-		else
-		{
+		} else {
 			$action = $this->defaults['action'];
 		}
 
 		if (sizeof($segments) > 2) {
 			$params = array_slice($segments, 2);
-		}
-		else {
+		} else {
 			$params = Array();
 		}
 
