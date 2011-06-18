@@ -18,7 +18,6 @@ function __autoload($class_name)
 	 * @TODO: Make these filenames a bit more configurable.
 	 */
 	$filename = implode($object_segments, '/');
-	$filename = strtolower($filename);
 	$filename = MICRO_CLASS_DIR . $filename . '.php';
 
 	if (file_exists($filename))
