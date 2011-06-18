@@ -1,6 +1,6 @@
 build_path = build
 
-quality = ${build_path}/clover.xml
+quality = ${build_path}/pmd.xml
 
 all: ${quality}
 
