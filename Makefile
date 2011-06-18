@@ -17,7 +17,7 @@ ${quality}: init_build
 # Generates reports on issues regarding PHP standard code-style
 ${standards_out}: init_build
 	@@phpcs --report=checkstyle --extensions=php --tab-width=4 \
-	        --report-width=79 --standard=Zend \
+	        --report-width=79 --standard=PEAR \
 	        ${source_path} > ${standards_out}
 
 # Sets up various build paths
