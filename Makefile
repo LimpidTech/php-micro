@@ -6,11 +6,18 @@ source_path = src
 quality = ${conf_path}/phpmd.xml
 quality_out = ${logs_path}/pmd.xml
 
-all: ${quality}
+standards_out = ${logs_path}/checkstyle.xml
+
+all: ${quality_out} ${standards_out}
 
 # Generates output regarding code quality assurance
 ${quality}: init_build
 	@@phpmd ${source_path} xml ${quality} --reportfile ${quality_out}
+
+# Generates reports on issues regarding PHP standard code-style
+${standards_out}: init_build
+	@@phpcs --report=checkstyle --extensions=php --tab-width=4 \
+	        --report-width=79 ${source_path} > ${standards_out}
 
 # Sets up various build paths
 init_build: ${build_path} ${logs_path}
