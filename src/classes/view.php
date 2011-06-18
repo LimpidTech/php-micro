@@ -1,6 +1,5 @@
 <?php
 
-		// TODO: Proper configuration subsystem
 	define('VIEW_BASE_DIR', MICRO_BASE_DIR . '/views');
 	define('VIEW_DEFAULT_NAME', 'index');
 	define('VIEW_DEFAULT_EXTENSION', 'php');
