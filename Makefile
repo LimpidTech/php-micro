@@ -1,7 +1,8 @@
 build_path = build
-logs_path = $(build_path)/logs
 conf_path = conf
 source_path = src
+docs_path = docs
+logs_path = $(build_path)/logs
 
 quality = $(conf_path)/phpmd.xml
 quality_out = $(logs_path)/pmd.xml
@@ -9,12 +10,14 @@ sloc_out = $(logs_path)/phploc.csv
 stability_xml_out = $(logs_path)/jdepend.xml
 stability_svg_out = $(logs_path)/jdepend.svg
 stability_overview_out = $(logs_path)/overview.svg
+codebrowse_out = $(docs_path)/browse
 
 standards_out = $(logs_path)/checkstyle.xml
 duplicates_out = $(logs_path)/phpcpd.xml
 
 all: $(quality_out) $(standards_out) $(duplicates_out) $(sloc_out) \
-     $(stability_xml_out) $(stability_svg_out) $(stability_overview_out)
+     $(stability_xml_out) $(stability_svg_out) $(stability_overview_out)\
+     $(codebrowse_out)
 
 # Generates output regarding code quality assurance
 $(quality_out): init_build
@@ -54,10 +57,15 @@ $(stability_svg_out): init_build
 $(stability_overview_out): init_build
 	@@pdepend --overview-pyramid=$(logs_path)/overview.svg $(source_path)
 
-# Sets up various build paths
-init_build: $(build_path) $(logs_path)
+# Generates a code browser which contains information about errors found
+$(codebrowse_out): init_build
+	@@mkdir -p $(codebrowse_out)
+	@@phpcb --log $(logs_path) --source $(source_path) --output $(codebrowse_out)
 
-$(build_path) $(logs_path):
+# Sets up various build paths
+init_build: $(build_path) $(logs_path) $(docs_path)
+
+$(build_path) $(logs_path) $(docs_path):
 	@@mkdir -p $@
 
 # Cleans up any files that we might have lying around from previous builds.

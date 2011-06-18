@@ -6,6 +6,7 @@ src/.htaccess
 
 # Don't include build output
 build/*
+docs/*
 
 # Don't commit any hidden files that aren't git-specific.
 .*
