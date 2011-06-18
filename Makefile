@@ -5,14 +5,15 @@ source_path = src
 
 quality = ${conf_path}/phpmd.xml
 quality_out = ${logs_path}/pmd.xml
+sloc_out = ${logs_path}/phploc.csv
 
 standards_out = ${logs_path}/checkstyle.xml
 duplicates_out = ${logs_path}/phpcpd.xml
 
-all: ${quality_out} ${standards_out} $(duplicates_out)
+all: ${quality_out} ${standards_out} $(duplicates_out) $(sloc_out)
 
 # Generates output regarding code quality assurance
-${quality}: init_build
+${quality_out}: init_build
 	@@echo "Checking code quality."
 	@@phpmd ${source_path} xml ${quality} --reportfile ${quality_out}
 
@@ -22,6 +23,11 @@ ${standards_out}: init_build
 	@@phpcs --report=checkstyle --extensions=php --tab-width=4 \
 	        --report-width=79 --standard=Zend \
 	        ${source_path} > ${standards_out}
+
+# Build phase for generating information regarding counting lines of code
+$(sloc_out): init_build
+	@@echo "Generating SLOC report."
+	@@phploc --log-csv $(sloc_out) $(source_path)
 
 # Makes sure that our code is nice and DRY.
 $(duplicates_out): init_build
