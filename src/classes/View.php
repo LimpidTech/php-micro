@@ -13,7 +13,7 @@ class View
 		return new View($name);
 	}
 
-	public function __construct($name=VIEW_DEFAULT_EXTENSION)
+	public function __construct($name=VIEW_DEFAULT_NAME)
 	{
 		$this->_name = $name;
 	}
