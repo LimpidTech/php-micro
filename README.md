@@ -58,5 +58,5 @@ no exceptions to this rule, but requests will be considered on a per-case
 basis for warnings. However, they must be for very good reasons. If it can
 be fixed, the pull wont be accepted into the master branch.*
 
-[^1] curl is required for phpunit's XMLRPC dependancy to function properly
+[^1]: curl is required for phpunit's XMLRPC dependancy to function properly
 
